@@ -1,0 +1,458 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD24\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">05-03-2025</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">06:29:50 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc" class="file"><acronym title="C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc">C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">20</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">3</td></tr>
+</table>
+</td>
+</table><a name="IDUIN4BG3IYVBLGUNJA11TM0ETMKSUKH142ZXUNZKE0IOAFXCRZSAN"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3DS3LHW0UBT3D5K0JNIQ3DBGSDFJKYT4WGSBPAM2FWN3DTBSSNFG">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0Z2WZJNZB4XMB1EO0GPWOM3R3BXTISWEIGRM0ABXCNN4PER3E1GI">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDN0RHC4VTN012DZCOGPXSNVAJ3DZU0T4P540OTIBUM3OLQBSYGXWO">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4YPTQ4JZUFETLWUX1I1G4TBRZGOE2CFTNKO2GPF1IUT4IQNLRBIP">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXX3FMWIDZUYFMW1MLZAOJUUCDJGDSKT5M1CV0FPNHEQG0ULUDVDN">Width Constraint (Min=0.183mm) (Max=0.335mm) (Preferred=0.335mm) (InNetClass('ANT_50R'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3HQW3L0EZ0CSH0VAHAX0S0YF1FMHFDID3SS0DXCRVT2VY0LYCOUI">Width Constraint (Min=0.183mm) (Max=0.366mm) (Preferred=0.366mm) (InNetClass('R24_Nets'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOIIZZ4BLKRVCJUGOLQYIOPIVAMKIXYYBGJWTJWEPICFU1WOZO3K">Width Constraint (Min=0.178mm) (Max=2mm) (Preferred=0.5mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQKSJA4YP0Y1TIHZD3RH5AU0UNZSNWWXWPNYMQLVXFHAUXR2HAQL">Width Constraint (Min=0.335mm) (Max=1mm) (Preferred=0.5mm) (InNet('MODEM_USIM_VDD'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUDCTDVB3YRYUJYHC2FQJNUO0JPREK24NMPO4TOMHWEU1ZEL3OUUH">Width Constraint (Min=0.183mm) (Max=0.366mm) (Preferred=0.366mm) (InNetClass('R25_Nets'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDR1UNLEIFN1Q5I121KTHNHZW3IMR4AKYIBFMYSGWDMXJB45HQ2IB">Width Constraint (Min=0.183mm) (Max=0.335mm) (Preferred=0.335mm) (InNet('SD_SCLK'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZ5420HHEADQIP0EAWIKNYOPPG35IHUCLUNX0GPXLWAVTL43CX1P">Width Constraint (Min=0.183mm) (Max=0.335mm) (Preferred=0.335mm) (InNet('SD_CS'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPE0JW1XFELF3EHX5RRN43TBTNHSAYN0LW4SPAQINAP4JT5U1UXWE">Width Constraint (Min=0.183mm) (Max=0.366mm) (Preferred=0.366mm) (InNetClass('R27_Nets'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDFFGLJ4OEHSKEYB5J2OSJ2L54L5POGI2VM3GRWJM3OTUUOV4WXPB">Width Constraint (Min=0.183mm) (Max=0.335mm) (Preferred=0.335mm) (InNet('SD_MOSI'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOSKC3WAUOQWPPZ1HJTWCI1EQ45O20FJSNFJX1H5XKBGL40VMCTP">Width Constraint (Min=0.183mm) (Max=0.335mm) (Preferred=0.335mm) (InNet('SD_MISO'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2PRQ0AGKOWB3BJXTCUTL0RGZ4CMJYASE4DEPOKCPFSENK0V141FJ">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFDINPJ1K2PX3PBNYJMVOISRF2OL5WODOMWZBK0NLW2RDR00E0QHJ">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLKXILLUU4FPQEBGRRPN3ILXRULQGYRUNIFQJB2FDJMPN0W1MJ41E">Hole Size Constraint (Min=0.025mm) (Max=6mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCSTYAA4LBLQTBD4HNXQVJSPSXL5VKTQS1OJRGJHVPBBDNTJIO13D">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMFHSKQ4FCVHDMPR2KPYTMSBEXJBAUUUUDOQTGZ45ZF1MNQAHKDP">Minimum Solder Mask Sliver (Gap=0.127mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJOZIAP4LG53QM5KHPNDOPUMB0DTAUJ4ILSBVK0D4AUS0DFAF3DGO">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID40RKVNXWFPGVDTAI3FQVDAMHTP1WRWETKAQQYKGTHTYG5SHN3OCC">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">20</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDN4Q5SK5WD1IUDS4ZKL1EFETRPM3UELDLZKE5O4HX2S11U5FMQ2VG">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRCCCIWLNS35EK3RQICSHYMMEWLTOZDLDOWAMR1N233JT4E5AV5O">Height Constraint (Min=0mm) (Max=55mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">20</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZX5HPECN05RJJG2TIDHN11QODD1HZVO43IIBRQCR5PMHAZLYVUXM">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">3</td>
+</tr>
+</table><br><a name="IDDLOCPCDA0HTCHO5ASFAWFYG0YOWG1N35HPQRSKHWQDNCPDLEISMG"><h2>Rule Violations</h2></a><a name="ID40RKVNXWFPGVDTAI3FQVDAMHTP1WRWETKAQQYKGTHTYG5SHN3OCC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17090.555mil|Location2.X=17101.805mil|Location1.Y=1940.286mil|Location2.Y=1951.536mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17090.555mil|Location2.X=17101.805mil|Location1.Y=1940.286mil|Location2.Y=1951.536mil|Absolute=True">Silk To Silk Clearance Constraint: (0.171mm &lt; 0.254mm) Between Text "SD CARD" (97.821mm,1.63mm) on Top Overlay And Track (100.057mm,8.849mm)(107.057mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0.171mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16878.9mil|Location2.X=16886.566mil|Location1.Y=1853.545mil|Location2.Y=1861.212mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16878.9mil|Location2.X=16886.566mil|Location1.Y=1853.545mil|Location2.Y=1861.212mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SD CARD" (97.821mm,1.63mm) on Top Overlay And Track (94.179mm,7.16mm)(99.307mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16975.377mil|Location2.X=16983.044mil|Location1.Y=1830.923mil|Location2.Y=1838.59mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16975.377mil|Location2.X=16983.044mil|Location1.Y=1830.923mil|Location2.Y=1838.59mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SD CARD" (97.821mm,1.63mm) on Top Overlay And Track (95.962mm,7.184mm)(101.307mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16962.114mil|Location2.X=16969.781mil|Location1.Y=1921.895mil|Location2.Y=1929.561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16962.114mil|Location2.X=16969.781mil|Location1.Y=1921.895mil|Location2.Y=1929.561mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SD CARD" (97.821mm,1.63mm) on Top Overlay And Track (96.307mm,8.849mm)(103.057mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17089.812mil|Location2.X=17097.479mil|Location1.Y=1866.079mil|Location2.Y=1873.745mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17089.812mil|Location2.X=17097.479mil|Location1.Y=1866.079mil|Location2.Y=1873.745mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SD CARD" (97.821mm,1.63mm) on Top Overlay And Track (98.057mm,8.849mm)(105.057mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16646.875mil|Location2.X=16658.125mil|Location1.Y=2036.514mil|Location2.Y=2047.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16646.875mil|Location2.X=16658.125mil|Location1.Y=2036.514mil|Location2.Y=2047.764mil|Absolute=True">Silk To Silk Clearance Constraint: (0.133mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (91.807mm,0.849mm)(91.807mm,13.849mm) on Top Overlay Silk Text to Silk Clearance [0.133mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16649.493mil|Location2.X=16660.743mil|Location1.Y=2088.444mil|Location2.Y=2099.694mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16649.493mil|Location2.X=16660.743mil|Location1.Y=2088.444mil|Location2.Y=2099.694mil|Absolute=True">Silk To Silk Clearance Constraint: (0.119mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (91.807mm,8.849mm)(127.057mm,8.849mm) on Top Overlay Silk Text to Silk Clearance [0.119mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16649.493mil|Location2.X=16660.743mil|Location1.Y=2035.368mil|Location2.Y=2046.618mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16649.493mil|Location2.X=16660.743mil|Location1.Y=2035.368mil|Location2.Y=2046.618mil|Absolute=True">Silk To Silk Clearance Constraint: (0.058mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (91.882mm,7.212mm)(96.54mm,7.212mm) on Top Overlay Silk Text to Silk Clearance [0.058mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16653.688mil|Location2.X=16664.938mil|Location1.Y=2035.136mil|Location2.Y=2046.386mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16653.688mil|Location2.X=16664.938mil|Location1.Y=2035.136mil|Location2.Y=2046.386mil|Absolute=True">Silk To Silk Clearance Constraint: (0.07mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (92.147mm,7.2mm)(97.307mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0.07mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16733.717mil|Location2.X=16744.967mil|Location1.Y=2034.343mil|Location2.Y=2045.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16733.717mil|Location2.X=16744.967mil|Location1.Y=2034.343mil|Location2.Y=2045.593mil|Absolute=True">Silk To Silk Clearance Constraint: (0.11mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (94.179mm,7.16mm)(99.307mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0.11mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16803.895mil|Location2.X=16815.145mil|Location1.Y=2034.815mil|Location2.Y=2046.065mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16803.895mil|Location2.X=16815.145mil|Location1.Y=2034.815mil|Location2.Y=2046.065mil|Absolute=True">Silk To Silk Clearance Constraint: (0.086mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (95.962mm,7.184mm)(101.307mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0.086mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16818.909mil|Location2.X=16830.159mil|Location1.Y=2086.214mil|Location2.Y=2097.592mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16818.909mil|Location2.X=16830.159mil|Location1.Y=2086.214mil|Location2.Y=2097.592mil|Absolute=True">Silk To Silk Clearance Constraint: (0.02mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (96.307mm,8.849mm)(103.057mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0.02mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16818.615mil|Location2.X=16829.865mil|Location1.Y=2088.444mil|Location2.Y=2099.694mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16818.615mil|Location2.X=16829.865mil|Location1.Y=2088.444mil|Location2.Y=2099.694mil|Absolute=True">Silk To Silk Clearance Constraint: (0.119mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (96.307mm,8.849mm)(98.057mm,8.849mm) on Top Overlay Silk Text to Silk Clearance [0.119mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16820.668mil|Location2.X=16831.918mil|Location1.Y=2036.514mil|Location2.Y=2047.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16820.668mil|Location2.X=16831.918mil|Location1.Y=2036.514mil|Location2.Y=2047.764mil|Absolute=True">Silk To Silk Clearance Constraint: (0.104mm &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (96.54mm,7.212mm)(96.54mm,8.75mm) on Top Overlay Silk Text to Silk Clearance [0.104mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16807.191mil|Location2.X=16814.857mil|Location1.Y=2038.306mil|Location2.Y=2045.973mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16807.191mil|Location2.X=16814.857mil|Location1.Y=2038.306mil|Location2.Y=2045.973mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "Sensor" (96.336mm,8.63mm) on Top Overlay And Track (96mm,0.75mm)(96mm,10.75mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17666.301mil|Location2.X=17673.968mil|Location1.Y=1820.363mil|Location2.Y=1828.03mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17666.301mil|Location2.X=17673.968mil|Location1.Y=1820.363mil|Location2.Y=1828.03mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SIM CARD" (117.821mm,1.38mm) on Top Overlay And Track (110.807mm,8.849mm)(118.807mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17699.757mil|Location2.X=17707.423mil|Location1.Y=1857.868mil|Location2.Y=1865.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17699.757mil|Location2.X=17707.423mil|Location1.Y=1857.868mil|Location2.Y=1865.535mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SIM CARD" (117.821mm,1.38mm) on Top Overlay And Track (112.557mm,8.849mm)(120.807mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17770.382mil|Location2.X=17778.049mil|Location1.Y=1861.424mil|Location2.Y=1869.091mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17770.382mil|Location2.X=17778.049mil|Location1.Y=1861.424mil|Location2.Y=1869.091mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SIM CARD" (117.821mm,1.38mm) on Top Overlay And Track (114.307mm,8.849mm)(122.557mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17877.214mil|Location2.X=17884.88mil|Location1.Y=1824.64mil|Location2.Y=1832.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17877.214mil|Location2.X=17884.88mil|Location1.Y=1824.64mil|Location2.Y=1832.307mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SIM CARD" (117.821mm,1.38mm) on Top Overlay And Track (116.057mm,8.849mm)(124.307mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17846.838mil|Location2.X=17854.504mil|Location1.Y=1930.017mil|Location2.Y=1937.684mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17846.838mil|Location2.X=17854.504mil|Location1.Y=1930.017mil|Location2.Y=1937.684mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "SIM CARD" (117.821mm,1.38mm) on Top Overlay And Track (118.057mm,8.849mm)(126.168mm,0.963mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDBN553DCWHXU2JW3QK1YQC5X1FER4CJ0HG3Z44VMQF2XL3VJLTB"><h2>Waived Violations</h2></a><a name="IDZX5HPECN05RJJG2TIDHN11QODD1HZVO43IIBRQCR5PMHAZLYVUXM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14999.303mil|Location2.X=15010.553mil|Location1.Y=2848.706mil|Location2.Y=2859.956mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14999.303mil|Location2.X=15010.553mil|Location1.Y=2848.706mil|Location2.Y=2859.956mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad C12-2(49.25mm,28mm) on Multi-Layer And Track (50.35mm,28mm)(51.55mm,29.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br>Waived by  at 03-03-2025 03:02:43 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13158.738mil|Location2.X=13169.988mil|Location1.Y=4275.871mil|Location2.Y=4287.121mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13158.738mil|Location2.X=13169.988mil|Location1.Y=4275.871mil|Location2.Y=4287.121mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad C2-2(4.25mm,64.25mm) on Multi-Layer And Track (1.95mm,63.05mm)(3.15mm,64.25mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br>Waived by  at 03-03-2025 03:03:21 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14605.674mil|Location2.X=14616.924mil|Location1.Y=5073.043mil|Location2.Y=5084.293mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14605.674mil|Location2.X=14616.924mil|Location1.Y=5073.043mil|Location2.Y=5084.293mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad C9-2(40.127mm,83.623mm) on Multi-Layer And Track (38.927mm,85.923mm)(40.127mm,84.723mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br>Waived by  at 03-03-2025 03:03:36 PM</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

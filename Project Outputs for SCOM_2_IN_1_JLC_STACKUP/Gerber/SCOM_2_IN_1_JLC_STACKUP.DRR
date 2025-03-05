@@ -1,0 +1,28 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: SCOM_2_IN_1_JLC_STACKUP.PcbDoc   05-03-2025  06:31:05 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : L1 to L4
+ASCII RoundHoles File : SCOM_2_IN_1_JLC_STACKUP.TXT
+ASCII RectHoles File : SCOM_2_IN_1_JLC_STACKUP-RectHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      10mil (0.254mm)                                           Round             4         PTH        0.09inch (2.29mm)
+T2      12mil (0.305mm)                                           Round             6         PTH        3.59inch (91.13mm)
+T3      16mil (0.406mm)                                           Round             271       PTH        37.39inch (949.58mm)
+T4      20mil (0.508mm)                                           Round             6         PTH        0.64inch (16.26mm)
+T5      24mil (0.61mm)                                            Round             4         PTH        0.81inch (20.61mm)
+T6      31mil (0.787mm)                                           Round             6         PTH        4.24inch (107.63mm)
+T7      32mil (0.813mm)                                           Round             6         PTH        0.50inch (12.70mm)
+T8      39mil (0.991mm)                                           Rectangle         3         PTH        1.27inch (32.30mm)
+T9      43mil (1.092mm)                                           Round             7         PTH        0.60inch (15.24mm)
+T10     51mil (1.295mm)                                           Round             8         PTH        1.07inch (27.29mm)
+T11     59mil (1.499mm)                                           Round             7         PTH        2.16inch (54.98mm)
+T12     79mil (2.007mm)                                           Round             3         PTH        0.40inch (10.16mm)
+T13     39mil (0.991mm)                                           Round             1         NPTH       0.00inch (0.00mm)
+T14     51mil (1.295mm)                                           Round             1         NPTH       0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              333
+
+Total Processing Time (hh:mm:ss) : 00:00:00
