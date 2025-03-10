@@ -1,0 +1,3 @@
+Removed Member From Class: ClassName=J5_Nets Member=NetJ5_SH4
+Added Pin To Net: NetName=GND Pin=J5-SH4
+Added Member To Class: ClassName=STORAGE Member=Component J5 5033981892

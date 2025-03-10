@@ -4,9 +4,9 @@ C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Alt
 ========================================================================================================================
 File Design Information:
 
-Date:       05-03-25
-Time:       18:30
-Revision:   Not in VersionControl
+Date:       10-03-25
+Time:       15:54
+Revision:   cecba12a38bfc90dbc9d8b6016fe6cd59bc00ca5
 Variant:    No variations
 Units used: mm
 
@@ -149,7 +149,7 @@ Units used: mm
 "R30","TopLayer","100.2500","35.7500","90","RES_0603"
 "R28","TopLayer","96.7500","35.7500","90","RES_0603"
 "R29","TopLayer","98.5000","35.7500","90","RES_0603"
-"J5","TopLayer","101.4250","23.8250","0","9 (8 + 1) Position Card Connector Secure Digital - microSD™ Surface Mount, Right Angle Gold"
+"J5","TopLayer","101.4250","23.5000","180","9 (8 + 1) Position Card Connector Secure Digital - microSD™ Surface Mount, Right Angle Gold"
 "C28","TopLayer","86.7500","22.0000","90","Chip Capacitor, 2-Leads, Body 2.00x1.25mm, IPC High Density"
 "C27","TopLayer","88.7500","22.0000","90","Chip Capacitor, 2-Leads, Body 2.00x1.25mm, IPC High Density"
 "C26","TopLayer","90.7500","22.0000","90","Chip Capacitor, 2-Leads, Body 2.00x1.25mm, IPC High Density"
@@ -166,3 +166,6 @@ Units used: mm
 "C30","TopLayer","83.9695","61.7613","0","Chip Capacitor, 2-Leads, Body 2.00x1.25mm, IPC High Density"
 "C29","TopLayer","83.9695","60.0000","0","Chip Capacitor, 2-Leads, Body 2.00x1.25mm, IPC High Density"
 "M1","TopLayer","111.1000","62.6000","90","LTE CAT1 MODEM 144 SMD"
+"CS0","TopLayer","28.7700","13.0000","180","P=5.08mm Pluggable System Terminal Block ROHS"
+"CS1","TopLayer","51.0980","13.0000","180","P=5.08mm Pluggable System Terminal Block ROHS"
+"CS2","TopLayer","117.8270","8.0100","180","7 Pin RA Male Header"

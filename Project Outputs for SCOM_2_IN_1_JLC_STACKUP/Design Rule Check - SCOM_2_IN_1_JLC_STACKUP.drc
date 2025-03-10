@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc
-Date     : 05-03-2025
-Time     : 06:29:50 PM
+Date     : 10-03-2025
+Time     : 03:50:47 PM
 
 Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
 Rule Violations :0
@@ -58,10 +58,16 @@ Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Minimum Solder Mask Sliver (Gap=0.127mm) (All),(All)
-Rule Violations :0
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.127mm) Between Pad J5-8(96.105mm,17.23mm) on L1 And Pad J5-SH2(95.025mm,17.73mm) on L1 [Top Solder] Mask Sliver [0.097mm]
+Rule Violations :1
 
 Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
-Rule Violations :0
+   Violation between Silk To Solder Mask Clearance Constraint: (0.19mm < 0.254mm) Between Pad J5-10(101.33mm,29.77mm) on L1 And Track (95.549mm,29.88mm)(100.551mm,29.88mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.19mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.191mm < 0.254mm) Between Pad J5-9(105.595mm,29.695mm) on L1 And Track (106.299mm,29.88mm)(107.301mm,29.88mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.191mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.19mm < 0.254mm) Between Pad J5-SH3(107.905mm,28.495mm) on L1 And Track (106.299mm,29.88mm)(107.301mm,29.88mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.19mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.236mm < 0.254mm) Between Pad J5-SH3(107.905mm,28.495mm) on L1 And Track (107.975mm,24.43mm)(107.975mm,26.53mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.236mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.19mm < 0.254mm) Between Pad J5-SH4(94.945mm,28.495mm) on L1 And Track (95.549mm,29.88mm)(100.551mm,29.88mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.19mm]
+Rule Violations :5
 
 Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
    Violation between Silk To Silk Clearance Constraint: (0.171mm < 0.254mm) Between Text "SD CARD" (97.821mm,1.63mm) on Top Overlay And Track (100.057mm,8.849mm)(107.057mm,0.849mm) on Top Overlay Silk Text to Silk Clearance [0.171mm]
@@ -99,6 +105,6 @@ Waived Violations Of Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All
 Waived Violations :3
 
 
-Violations Detected : 20
+Violations Detected : 26
 Waived Violations : 3
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02

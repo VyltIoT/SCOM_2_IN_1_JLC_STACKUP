@@ -1,14 +1,15 @@
 Project Outputs Generation Report
 ---------------------------------
-Start Output Generation At 06:30:53 PM On 05-03-2025
+Start Output Generation At 03:54:11 PM On 10-03-2025
 
-Output: Bill of Materials
-Type  : BOM
-From  : Variant [[No Variations]] of Project [SCOM_2_IN_1_JLC_STACKUP.PrjPcb]
-   Generated File[//vylt-my.sharepoint.com/personal/satyam_vylt_in/Documents/Altium_Designs/SCOM_2_IN_1_JLC_STACKUP/Project Outputs for SCOM_2_IN_1_JLC_STACKUP/BOM/Bill of Materials-SCOM_2_IN_1_JLC_STACKUP.xlsx]
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of PCB Document [SCOM_2_IN_1_JLC_STACKUP.PcbDoc]
+   Generated File[Pick Place for SCOM_2_IN_1_JLC_STACKUP.txt]
+   Generated File[Pick Place for SCOM_2_IN_1_JLC_STACKUP.csv]
 
 
-Files Generated   : 1
+Files Generated   : 2
 Documents Printed : 0
 
-Finished Output Generation At 06:30:59 PM On 05-03-2025
+Finished Output Generation At 03:54:12 PM On 10-03-2025

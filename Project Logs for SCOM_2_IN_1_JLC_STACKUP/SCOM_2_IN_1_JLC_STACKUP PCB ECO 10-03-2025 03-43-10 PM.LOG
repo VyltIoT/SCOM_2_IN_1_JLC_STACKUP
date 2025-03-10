@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=GND Pin=J5-G1
+Removed Pin From Net: NetName=GND Pin=J5-G2
+Removed Pin From Net: NetName=GND Pin=J5-G3
+Removed Member From Class: ClassName=J5_Nets Member=NetJ5_CD
+Change Component Footprint: Designator=J5 Old Footprint=GTFP084 New Footprint=5033981892
+Change Component Comment : Designator=J5 Old Comment=GTFP084 New Comment=5033981892
+Change component parameters: Designator = "J5" ("J5"); Footprint = "GTFP084"; UniqueID = "\OAROKOYS" ("\OAROKOYS")
+Change component parameters (AddParameter): Name = "Manufacturer 1"; Value = "Molex"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "5033981892"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "9 (8+1)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J5-SH1
+Added Pin To Net: NetName=GND Pin=J5-SH2
+Added Pin To Net: NetName=GND Pin=J5-SH3
+Added Pin To Net: NetName=NetJ5_9 Pin=J5-9
+Added Net: Name=NetJ5_9
+Added Pin To Net: NetName=NetJ5_10 Pin=J5-10
+Added Net: Name=NetJ5_10
+Added Pin To Net: NetName=NetJ5_SH4 Pin=J5-SH4
+Added Net: Name=NetJ5_SH4
+Added Member To Class: ClassName=J5_Nets Member=Wire NetJ5_9
+Added Member To Class: ClassName=J5_Nets Member=Wire NetJ5_10
+Added Member To Class: ClassName=J5_Nets Member=Wire NetJ5_SH4
