@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Satyam.DESKTOP-S570OAU\OneDrive - Vylt Technologies Private Limited\Altium_Designs\SCOM_2_IN_1_JLC_STACKUP\SCOM_2_IN_1_JLC_STACKUP.PcbDoc
-Date     : 10-03-2025
-Time     : 03:50:47 PM
+Date     : 21-03-2025
+Time     : 04:45:03 PM
 
 Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
 Rule Violations :0
@@ -107,4 +107,4 @@ Waived Violations :3
 
 Violations Detected : 26
 Waived Violations : 3
-Time Elapsed        : 00:00:02
+Time Elapsed        : 00:00:01
